@@ -1,0 +1,60 @@
+<?php
+/** @var \Dheeraj\Manufacturer\Block\Adminhtml\Manufacturer\Edit $block */
+
+$manufacturer = $block->getManufacturer();
+
+?>
+
+<div class="admin__page-header">
+    <div class="page-title">
+        <span class="title"><?php echo $manufacturer->getId() ? __('Edit Manufacturer') : __('New Manufacturer') ?></span>
+    </div>
+</div>
+
+<form id="edit_form" action="<?php echo $block->getUrl('*/*/save', ['id' => $manufacturer->getId()]) ?>" method="post" enctype="multipart/form-data">
+   <?php echo $block->getBlockHtml('form_key'); ?>
+    <input name="id" type="hidden" value="<?php echo $manufacturer->getId() ?>" />
+    <?php echo $block->getBlockHtml('form_key'); ?>
+
+    <fieldset class="fieldset">
+        <legend class="legend"><?php echo __('Manufacturer Information') ?></legend>
+
+        <div class="field required">
+            <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+            <div class="control">
+                <input type="text" id="name" name="name" value="<?php echo $manufacturer->getName() ?>" class="input-text" required />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="description"><span><?php echo __('Description') ?></span></label>
+            <div class="control">
+                <textarea id="description" name="description" class="textarea"><?php echo $manufacturer->getDescription() ?></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="website"><span><?php echo __('Website') ?></span></label>
+            <div class="control">
+                <input type="text" id="website" name="website" value="<?php echo $manufacturer->getWebsite() ?>" class="input-text" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="is_enabled"><span><?php echo __('Enable') ?></span></label>
+            <div class="control">
+                <input type="checkbox" id="is_enabled" name="is_enabled" value="1" <?php echo $manufacturer->isEnabled() ? 'checked="checked"' : '' ?> class="checkbox" />
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <button type="submit" class="action-default scalable primary">
+            <span><?php echo __('Save Manufacturer') ?></span>
+        </button>
+        <a class="action-secondary" href="<?php echo $block->getUrl('*/*/index') ?>">
+            <span><?php echo __('Cancel') ?></span>
+        </a>
+    </div>
+</form>

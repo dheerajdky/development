@@ -1,0 +1,12 @@
+<?php
+/* @var $block \Magento\Catalog\Block\Product\View\Description */
+
+$product = $block->getProduct();
+$textColor = $product->getTextColor();
+$bgColor = $product->getBgColor();
+?>
+
+<div class="page-title-wrapper product">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper" itemprop="name" style="color: <?php echo $textColor; ?>; background-color: <?php echo $bgColor; ?>;"><?php echo $block->escapeHtml($product->getName()); ?></span>    </h1>
+</div>

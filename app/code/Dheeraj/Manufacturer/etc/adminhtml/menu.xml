@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dheeraj_Manufacturer::manufacturer" title="Manufacturer" module="Dheeraj_Manufacturer" sortOrder="40" resource="Dheeraj_Manufacturer::manufacturer"/>
+        <add id="Dheeraj_Manufacturer::manufacturer_manage" title="Manage Manufacturers" module="Dheeraj_Manufacturer" sortOrder="10" parent="Dheeraj_Manufacturer::manufacturer" action="adminhtml/manufacturer/save" resource="Dheeraj_Manufacturer::manufacturer_manage"/>
+    </menu>
+</config>
+
